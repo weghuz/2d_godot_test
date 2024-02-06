@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbcugigjx52sq"]
+
+[ext_resource type="Script" path="res://objects/enemy.gd" id="1_a0b8k"]
+[ext_resource type="Texture2D" uid="uid://cwacksewivhrt" path="res://player/icon.svg" id="2_btuoj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljdnp"]
+size = Vector2(128, 128)
+
+[node name="AngryGodot" type="Area2D"]
+script = ExtResource("1_a0b8k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_btuoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ljdnp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

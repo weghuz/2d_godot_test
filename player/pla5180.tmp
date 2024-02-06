@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5m4q4gu22p6r"]
+
+[ext_resource type="Script" path="res://player/player_ui.gd" id="1_7jtu6"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_7jtu6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 138.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Health: 100"
+
+[node name="GameOver" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "Game"
