@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwm1xrblurjfn"]
+
+[ext_resource type="PackedScene" uid="uid://bdqwxohedvcba" path="res://player/player.tscn" id="1_43r5j"]
+[ext_resource type="PackedScene" uid="uid://c5m4q4gu22p6r" path="res://player/player_ui.tscn" id="2_xx7qw"]
+[ext_resource type="Texture2D" uid="uid://cwacksewivhrt" path="res://player/icon.svg" id="3_5bvpn"]
+[ext_resource type="Script" path="res://level1/enemy.gd" id="3_cr2as"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljdnp"]
+size = Vector2(128, 128)
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_43r5j")]
+position = Vector2(103, 249)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_xx7qw")]
+
+[node name="AngryGodot" type="CharacterBody2D" parent="."]
+position = Vector2(527, 296)
+script = ExtResource("3_cr2as")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="AngryGodot"]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_5bvpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AngryGodot"]
+shape = SubResource("RectangleShape2D_ljdnp")

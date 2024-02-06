@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshc0dncp1qqx"]
+
+[ext_resource type="Theme" uid="uid://bb8wubcx7cah5" path="res://theme.tres" id="1_l6jaf"]
+[ext_resource type="Script" path="res://button_load_scene.gd" id="2_q8bx3"]
+[ext_resource type="PackedScene" uid="uid://dv81cxh4wb4ag" path="res://level1.tscn" id="3_7d4t5"]
+[ext_resource type="Script" path="res://exit_on_button_pressed.gd" id="4_o5uo8"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.0
+offset_right = 196.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 72
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_l6jaf")
+text = "Start Game"
+script = ExtResource("2_q8bx3")
+scene = ExtResource("3_7d4t5")
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_l6jaf")
+text = "Exit"
+script = ExtResource("4_o5uo8")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="_on_pressed"]

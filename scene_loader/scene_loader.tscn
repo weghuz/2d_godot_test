@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bh86inryvgi"]
+
+[ext_resource type="Script" path="res://scene_loader/scene_loader.gd" id="1_cigfa"]
+[ext_resource type="PackedScene" uid="uid://25moygl0b6fm" path="res://main_menu/main_menu.tscn" id="2_c8g14"]
+[ext_resource type="PackedScene" uid="uid://bwm1xrblurjfn" path="res://level1/level1.tscn" id="3_aola8"]
+
+[node name="SceneLoader" type="Node"]
+script = ExtResource("1_cigfa")
+scene_paths = Array[PackedScene]([ExtResource("2_c8g14"), ExtResource("3_aola8")])

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdqwxohedvcba"]
+
+[ext_resource type="Script" path="res://player/player_controller.gd" id="1_ot06w"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_prv8j"]
+[ext_resource type="Texture2D" uid="uid://cwacksewivhrt" path="res://player/icon.svg" id="2_liqkc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ty3ja"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 126.67
+initial_velocity_max = 240.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.3
+collision_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgjs1"]
+size = Vector2(128, 128)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_ot06w")
+
+[node name="DiedParticles" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_ty3ja")
+texture = ExtResource("2_liqkc")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_prv8j")
+
+[node name="Sprite" type="Sprite2D" parent="PlayerCharacter"]
+texture = ExtResource("2_liqkc")
+
+[node name="Collision" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_qgjs1")

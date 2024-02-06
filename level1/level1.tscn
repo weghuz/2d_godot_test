@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwm1xrblurjfn"]
+
+[ext_resource type="PackedScene" uid="uid://bdqwxohedvcba" path="res://player/player.tscn" id="1_43r5j"]
+[ext_resource type="PackedScene" uid="uid://c5m4q4gu22p6r" path="res://ui/player_ui.tscn" id="3_e48ab"]
+[ext_resource type="PackedScene" uid="uid://dbcugigjx52sq" path="res://objects/angry_godot.tscn" id="3_eqhwk"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_43r5j")]
+position = Vector2(175, 299)
+
+[node name="AngryGodot" parent="." instance=ExtResource("3_eqhwk")]
+position = Vector2(697, 499)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 299)
+
+[node name="PlayerUI" parent="." instance=ExtResource("3_e48ab")]
+
+[connection signal="player_died" from="Player" to="PlayerUI" method="game_over"]
+[connection signal="player_scored_points" from="Player" to="PlayerUI" method="set_points"]
+[connection signal="speed_changed" from="AngryGodot" to="PlayerUI" method="update_enemy_speed"]
