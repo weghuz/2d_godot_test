@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="2DProject"
+config/name="angry_godot"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://player/icon.svg"
